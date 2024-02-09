@@ -15,14 +15,14 @@
 msg_color_magenta='\e[1;35m'
 msg_color_yellow='\e[0;33m'
 msg_color_none='\e[0m' # No Color
+echo -en "${msg_color_yellow}Begin PHPStan Task Runner ...${msg_color_none} \n"
 
-echo -en "${msg_color_yellow}Begin PestPHP Task Runner ...${msg_color_none} \n"
+phpunit_command="vendor/bin/phpstan"
 
-phpunit_command="vendor/bin/phpstan --ansi"
+args=$1
 
-
-echo "Running command $phpunit_command"
-$phpunit_command
+echo "Running command $phpunit_command $args"
+$phpunit_command $args
 if [ $? -ne 0 ]; then
     exit 1
 fi

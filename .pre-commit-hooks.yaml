@@ -43,7 +43,7 @@
   description: Check for bugs in your code using PHPStan.
   entry: pre_commit_hooks/php-stan.sh
   language: script
-  files: \.php$
+  pass_filenames: false
   always_run: true
 
 - id: php-cs
@@ -72,5 +72,4 @@
   description: Run php coding standards fixer against all staged files.
   entry: pre_commit_hooks/laravel-pint.sh
   language: script
-  files: \.php$
-  always_run: true
+  files: ''
